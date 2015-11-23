@@ -49,7 +49,7 @@ eab10f643026        host                host
 ```
 And that looks good...Now all that's left is firing up some docker containers.
 ```
-vagrant@minion0:~$ docker run -it --net=net1 --name=mintest busybox
+vagrant@minion0:~$ docker run -it --net=net1 --name mintest busybox
 ```
 and
 ```

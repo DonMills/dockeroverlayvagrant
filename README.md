@@ -66,5 +66,7 @@ PING mastest (192.168.50.3): 56 data bytes
 ```
 BAM -> you are pinging over a vxlan tunnel between hosts.
 
+I have written an overly detailed explanation of how all this works, which you can find in /docs.
+
 
 

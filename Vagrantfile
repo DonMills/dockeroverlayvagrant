@@ -83,6 +83,7 @@ config.vm.define "etcdmaster" do |etcdmaster|
   end
   etcdmaster.vm.hostname = "etcdmaster"
   etcdmaster.vm.network :private_network, ip: "192.168.2.15"
+  etcdmaster.vm.provision :shell, inline: 'mkdir -p /tmp/vagrant-chef/cookbooks/nodes'
   etcdmaster.vm.provision "chef_solo" do |chef|
     chef.roles_path = "roles"
     chef.add_role("etcdmaster")
@@ -100,6 +101,7 @@ MINION_COUNT.times do |minion|
     end
     node.vm.hostname = "#{minion_id}"
     node.vm.network :private_network, ip: "192.168.2.#{ip_start+minion.to_s}"
+    node.vm.provision :shell, inline: 'mkdir -p /tmp/vagrant-chef/cookbooks/nodes'
     node.vm.provision "chef_solo" do |chef|
       chef.roles_path = "roles"
       chef.add_role("minion")
